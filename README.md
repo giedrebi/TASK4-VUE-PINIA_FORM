@@ -6,7 +6,7 @@ Form with VUE + PINIA (display form details in parent element).
 
 1. Go to the folder where you want clone repository, then open GIT BASH/terminal there, enter this line:
 
-`$ git clone https://github.com/giedrebi/TASK4-VUE-PINIA-FORM.git`
+$ git clone https://github.com/giedrebi/TASK4-VUE-PINIA_FORM.git
 
 2. Open cloned project folder in VScode. 
 
