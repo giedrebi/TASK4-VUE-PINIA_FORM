@@ -4,8 +4,13 @@ import { ref } from 'vue'
 import UserForm from './UserForm.vue'
 
 const user_store = useUserStore()
-
 const sort = ref(false)
+const usercomment = user_store.comment
+if (usercomment <= 10) {
+ lessTenChar = true, moreTenChar = false, twentyChar = false
+}
+
+
 
 const DeleteUser = id => {
   user_store.delete(id)
@@ -39,7 +44,9 @@ const DeleteUser = id => {
           <td>{{ user.email }}</td>
           <td>{{ user.gender }}</td>
           <td>{{ user.age }}</td>
-          <td>{{ user.message }}</td>
+          <td class="blueChar" v-if="user.comment.length <= 10">{{ user.comment }}</td>
+          <td class="greenChar" v-else-if=" user.comment.length > 10, user.comment.length  <= 20 ">{{ user.comment }} </td>
+          <td class="redChar" v-else>{{ user.comment }} </td>
           <td><button @click="DeleteUser(user.id)">DELETE</button></td>
         </tr>
       </tbody>
@@ -50,7 +57,9 @@ const DeleteUser = id => {
           <td>{{ user.email }}</td>
           <td>{{ user.gender }}</td>
           <td>{{ user.age }}</td>
-          <td>{{ user.message }}</td>
+          <td class="blueChar" v-if="user.comment.length <= 10">{{ user.comment }}</td>
+          <td class="greenChar" v-else-if=" user.comment.length > 10, user.comment.length  <= 20 ">{{ user.comment }} </td>
+          <td class="redChar" v-else>{{ user.comment }} </td>
           <td><button @click="DeleteUser(user.id)">DELETE</button></td>
         </tr>
       </tbody>
@@ -67,6 +76,17 @@ body {
 main {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.blueChar {
+    color: blue !important;
+  }
+  
+  .greenChar {
+    color: green !important;
+  }
+  
+  .redChar {
+    color: red !important;
+  }
 
 button {
   background: #d8e5f8;
