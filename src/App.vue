@@ -5,12 +5,6 @@ import UserForm from './UserForm.vue'
 
 const user_store = useUserStore()
 const sort = ref(false)
-const usercomment = user_store.comment
-if (usercomment <= 10) {
- lessTenChar = true, moreTenChar = false, twentyChar = false
-}
-
-
 
 const DeleteUser = id => {
   user_store.delete(id)
